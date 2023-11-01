@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SwaggerComponent.hpp"
+#include "DatabaseComponent.hpp"
 
 #include <oatpp/web/server/HttpConnectionHandler.hpp>
 #include <oatpp/network/tcp/server/ConnectionProvider.hpp>
@@ -10,6 +11,7 @@
 class AppComponent {
 public:
     SwaggerComponent swaggerComponent;
+    DatabaseComponent databaseComponent;
 
     OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
         return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", 8000, oatpp::network::Address::IP_4});
